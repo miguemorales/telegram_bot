@@ -1,7 +1,7 @@
 from telegram.ext import Updater, CommandHandler 
 
 def start(update, context):
-  update.message.reply_text('Hola humano')
+  update.message.reply_text('Hola bienvenido, que deseas hacer?\n\nUsa /qr para generar un codigo qr')
   
   
 if __name__ == '__main__':
