@@ -4,7 +4,7 @@ import datetime
 import telegram_send  # pip install telegram-send
 
 
-def BTC():
+def BTC(driver):
         btcname = driver.find_element_by_xpath('/html/body/div/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr[1]/td[3]/div/a').text
         btcprice = driverfind_element_by_xpath('/html/body/div/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr[1]/td[4]/div/a').text
         btc24h =  driverfind_element_by_xpath('/html/body/div/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr[1]/td[5]/span').text
@@ -17,6 +17,6 @@ if __name__ == '__main__':
     driver = webdriver.Chrome()
     driver.get("https://coinmarketcap.com/")
 
-    BTC()
+    BTC(driver)
 
     
