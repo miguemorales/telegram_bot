@@ -1,4 +1,10 @@
-from selenium import webdriver  #to install: "pip install selenium"
+import sys
+sys.path.insert(0,'/usr/lib/chromium-browser/chromedriver')
+from selenium import webdriver
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage')
 import time
 import datetime
 import telegram_send  # pip install telegram-send
@@ -14,7 +20,7 @@ def BTC(driver):
 
 if __name__ == '__main__':
 
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome('chromedriver',chrome_options=chrome_options)
     driver.get("https://coinmarketcap.com/")
 
     BTC(driver)
