@@ -14,9 +14,10 @@ def BTC(driver):
         btcname = driver.find_element_by_xpath('/html/body/div/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr[1]/td[3]/div/a').text
         btcprice = driver.find_element_by_xpath('/html/body/div/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr[1]/td[4]/div/a').text
         btc24h =  driver.find_element_by_xpath('/html/body/div/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr[1]/td[5]/span').text
-        btc24hS = driver.find_element_by_xpath('/html/body/div/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr[1]/td[5]/span/span.class')
         btc7d = driver.find_element_by_xpath('/html/body/div[1]/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr[1]/td[6]/span').text
-        print(btcname,' precio:', btcprice, ' 24h:',btc24h,'signo:',btc24hS,' 7d:',btc7d)
+        print(btcname,' precio:', btcprice, ' 24h:',btc24h,' 7d:',btc7d)
+        
+        return btcprice, btc24h, btc7d
 
 
 if __name__ == '__main__':
@@ -24,6 +25,14 @@ if __name__ == '__main__':
     driver = webdriver.Chrome('chromedriver',chrome_options=chrome_options)
     driver.get("https://coinmarketcap.com/")
 
-    BTC(driver)
+    prevbtcprice, prevbtc24h, prevbtc7d = BTC(driver)
+    newbtcprice = prevbtcprice
+    while(newbtcprice = prevbtcprice):
+        time.sleep(5)
+        prevbtcprice, prevbtc24h, prevbtc7d = BTC(driver)
+        
+    if (newbtcprice = prevbtcprice):
+        
+        
 
     
