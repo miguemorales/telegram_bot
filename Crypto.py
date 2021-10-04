@@ -27,12 +27,18 @@ if __name__ == '__main__':
     driver.get("https://coinmarketcap.com/")
 
     prevbtcprice, prevbtc24h, prevbtc7d = BTC(driver)
-    newbtcprice = prevbtcprice
-    while(newbtcprice = prevbtcprice):
+    newbtcprice = 0
+    '''while(newbtcprice == prevbtcprice):
         time.sleep(5)
-        prevbtcprice, prevbtc24h, prevbtc7d = BTC(driver)
+        newbtcprice, newbtc24h, newbtc7d = BTC(driver)
         
-    if (newbtcprice = prevbtcprice):
+    if (newbtcprice < prevbtcprice):
+        if (newbtc24h > prevbtc24h):
+                newbtc24h = -newbtc24h
+        if(newbtc7d > prevbtc7d):
+                newbtc7d = -newbtc7d
+                
+    print('BTC-> precio:', btcprice, ' 24h:',btc24h,' 7d:',btc7d)'''
         
         
 
