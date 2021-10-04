@@ -11,11 +11,12 @@ import telegram_send  # pip install telegram-send
 
 
 def BTC(driver):
+        name = driver.find_element_by_xpath('//*[@id="__next"]/div/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr[1]/td[3]/div/a/div/div/p').text
         btcname = driver.find_element_by_xpath('/html/body/div/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr[1]/td[3]/div/a').text
         btcprice = driver.find_element_by_xpath('/html/body/div/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr[1]/td[4]/div/a').text
         btc24h =  driver.find_element_by_xpath('/html/body/div/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr[1]/td[5]/span').text
         btc7d = driver.find_element_by_xpath('/html/body/div[1]/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr[1]/td[6]/span').text
-        print(btcname,' precio:', btcprice, ' 24h:',btc24h,' 7d:',btc7d)
+        print(btcname,' precio:', btcprice, ' 24h:',btc24h,' 7d:',btc7d,"nombre":, name)
         
         return btcprice, btc24h, btc7d
 
