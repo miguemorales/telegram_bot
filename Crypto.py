@@ -11,16 +11,16 @@ import telegram_send  # pip install telegram-send
 
 
 def Precios(driver,i):
-        criptoname = driver.find_element_by_xpath('/html/body/div/div/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr['+i+']/td[3]/div/a/div/div/p').text
-        criptoprice = driver.find_element_by_xpath('/html/body/div/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr['+i+']/td[4]/div/a').text
-        cripto24h =  driver.find_element_by_xpath('/html/body/div/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr['+i+']/td[5]/span').text
-        cripto7d = driver.find_element_by_xpath('/html/body/div[1]/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr['+i+']/td[6]/span').text
+        criptoname = driver.find_element_by_xpath('/html/body/div/div/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr['+str(i)+']/td[3]/div/a/div/div/p').text
+        criptoprice = driver.find_element_by_xpath('/html/body/div/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr['+str(i)+']/td[4]/div/a').text
+        cripto24h =  driver.find_element_by_xpath('/html/body/div/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr['+str(i)+']/td[5]/span').text
+        cripto7d = driver.find_element_by_xpath('/html/body/div[1]/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr['+str(i)+']/td[6]/span').text
         
         return  criptoprice, cripto24h, cripto7d
 
 def Buscador(driver, cry):
         for i in range(10):
-                palabra = driver.find_element_by_xpath('/html/body/div/div/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr['+i+']/td[3]/div/a/div/div/p').text
+                palabra = driver.find_element_by_xpath('/html/body/div/div/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr['+str(i)+']/td[3]/div/a/div/div/p').text
                 if (cry == palabra):
                         print('comparcion: ', cry, ' ',palabra)
                         return i
