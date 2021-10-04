@@ -23,7 +23,7 @@ def BTC(driver):
 if __name__ == '__main__':
 
     Criptos = ['Bitcoin','Ethereum','Cardano','Polkadot']
-    driver = webdriver.Chrome('chromedriver',chrome_options=options)
+    driver = webdriver.Chrome('chromedriver',options=chrome_options)
     driver.get("https://coinmarketcap.com/")
 
     prevbtcprice, prevbtc24h, prevbtc7d = BTC(driver)
