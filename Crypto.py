@@ -23,7 +23,7 @@ def BTC(driver):
 if __name__ == '__main__':
 
     Criptos = ['Bitcoin','Ethereum','Cardano','Polkadot']
-    driver = webdriver.Chrome('chromedriver',chrome_options=chrome_options)
+    driver = webdriver.Chrome('chromedriver',chrome_options=options)
     driver.get("https://coinmarketcap.com/")
 
     prevbtcprice, prevbtc24h, prevbtc7d = BTC(driver)
@@ -37,9 +37,9 @@ if __name__ == '__main__':
         
     if (newbtcprice < prevbtcprice):
         if (newbtc24h > prevbtc24h):
-                newbtc24h = -newbtc24h
+                newbtc24h = '-' + newbtc24h
         if(newbtc7d > prevbtc7d):
-                newbtc7d = -newbtc7d
+                newbtc7d = '-' + newbtc7d
                 
     print('BTC-> precio:', btcprice, ' 24h:',btc24h,' 7d:',btc7d)
     print('Tiempo de ejecucion: ', time.time()-inicio)
