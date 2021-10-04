@@ -10,30 +10,43 @@ import datetime
 import telegram_send  # pip install telegram-send
 
 
-def BTC(driver):
-        btcname = driver.find_element_by_xpath('/html/body/div/div/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr[1]/td[3]/div/a/div/div/p').text
-        btcprice = driver.find_element_by_xpath('/html/body/div/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr[1]/td[4]/div/a').text
-        btc24h =  driver.find_element_by_xpath('/html/body/div/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr[1]/td[5]/span').text
-        btc7d = driver.find_element_by_xpath('/html/body/div[1]/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr[1]/td[6]/span').text
-        print(btcname,'-> precio:', btcprice, ' %24h:',btc24h,' %7d:',btc7d)
+def Precios(driver,i):
+        criptoname = driver.find_element_by_xpath('/html/body/div/div/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr['+i+']/td[3]/div/a/div/div/p').text
+        criptoprice = driver.find_element_by_xpath('/html/body/div/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr['+i+']/td[4]/div/a').text
+        cripto24h =  driver.find_element_by_xpath('/html/body/div/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr['+i+']/td[5]/span').text
+        cripto7d = driver.find_element_by_xpath('/html/body/div[1]/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr['+i+']/td[6]/span').text
         
-        return btcprice, btc24h, btc7d
+        return  criptoprice, cripto24h, cripto7d
 
+def Buscador(driver, cry):
+        for i in range(10):
+                palabra = driver.find_element_by_xpath('/html/body/div/div/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr['+i+']/td[3]/div/a/div/div/p').text
+                if (cry == palabra):
+                        print('comparcion: ', cry, ' ',palabra)
+                        return i
 
 if __name__ == '__main__':
 
-    Criptos = ['Bitcoin','Ethereum','Cardano','Polkadot']
+    criptos = ['Bitcoin','Ethereum','Cardano','Polkadot']
     driver = webdriver.Chrome('chromedriver',options=chrome_options)
     driver.get("https://coinmarketcap.com/")
-
-    prevbtcprice, prevbtc24h, prevbtc7d = BTC(driver)
+    db = {}
+    for cripto in criptos:
+        aux = Buscador(dirver,cripto)
+        db[cripto] = aux
+        print(db)
+        db[cripto].append(Precios(driver,aux))
+        print(db)
+    print(db)
+    
+    '''prevprice, prev24h, prev7d = precios(driver)
     newbtcprice = prevbtcprice
     inicio = time.time()
     while(newbtcprice == prevbtcprice):
-        time.sleep(5)
+        time.sleep(2)
         driver = webdriver.Chrome('chromedriver',chrome_options=chrome_options)
         driver.get("https://coinmarketcap.com/")
-        newbtcprice, newbtc24h, newbtc7d = BTC(driver)
+        newbtcprice, newbtc24h, newbtc7d = precios(driver)
         
     if (newbtcprice < prevbtcprice):
         if (newbtc24h > prevbtc24h):
@@ -42,7 +55,7 @@ if __name__ == '__main__':
                 newbtc7d = '-' + newbtc7d
                 
     print('BTC-> precio:', btcprice, ' 24h:',btc24h,' 7d:',btc7d)
-    print('Tiempo de ejecucion: ', time.time()-inicio)
+    print('Tiempo de ejecucion: ', time.time()-inicio)'''
         
         
 
