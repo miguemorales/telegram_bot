@@ -31,6 +31,8 @@ if __name__ == '__main__':
     inicio = time.time()
     while(newbtcprice == prevbtcprice):
         time.sleep(5)
+        driver = webdriver.Chrome('chromedriver',chrome_options=chrome_options)
+        driver.get("https://coinmarketcap.com/")
         newbtcprice, newbtc24h, newbtc7d = BTC(driver)
         
     if (newbtcprice < prevbtcprice):
