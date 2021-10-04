@@ -19,7 +19,7 @@ def Precios(driver,i):
         return  criptoprice, cripto24h, cripto7d
 
 def Buscador(driver, cry):
-        for i in range(10):
+        for i in (range(10)+1):
                 palabra = driver.find_element_by_xpath('/html/body/div/div/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr['+str(i)+']/td[3]/div/a/div/div/p').text
                 if (cry == palabra):
                         print('comparcion: ', cry, ' ',palabra)
