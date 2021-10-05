@@ -24,7 +24,7 @@ def Buscador(driver, cryp):
                 palabra = driver.find_element_by_xpath('/html/body/div/div/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr['+str(i)+']/td[3]/div/a/div/div/p').text
                 if (cryp == palabra):
                         print('comparison: ', cryp, ' ',palabra)
-                        return z
+                        return i
 
 if __name__ == '__main__':
 
@@ -34,7 +34,7 @@ if __name__ == '__main__':
     db = {}
     for cripto in criptos:
         aux = Buscador(driver,cripto)
-        db[cripto] = aux
+        db[cripto] = list(aux)
         print(db)
         db[cripto].append(Precios(driver,aux))
         print(db)
