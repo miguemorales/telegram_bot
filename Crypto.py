@@ -71,7 +71,7 @@ if __name__ == '__main__':
     for cripto in criptos:
         print(data1[cripto]
         
-    print('Tiempo de ejecucion: ', time.time()-inicio)'''
+    print('Tiempo de ejecucion: ', time.time()-inicio)
         
         
 
