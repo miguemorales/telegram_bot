@@ -30,33 +30,45 @@ if __name__ == '__main__':
     criptos = ['Bitcoin','Ethereum','Cardano','Polkadot']
     driver = webdriver.Chrome('chromedriver',options=chrome_options)
     driver.get("https://coinmarketcap.com/")
-    db = {}
+    data0 = {}
     for cripto in criptos:
         aux = []
         aux.append(Buscador(driver,cripto))
         aux.append(Precios(driver,aux[0])[0])
         aux.append(Precios(driver,aux[0])[1])
         aux.append(Precios(driver,aux[0])[2])
-        db[cripto] = aux
-        #print(db)
-    print(db)
-    
-    '''prevprice, prev24h, prev7d = precios(driver)
-    newbtcprice = prevbtcprice
+        data0[cripto] = aux
+
+    print(data0)
+
+    #Hata aqui ya crea el dic de moneda, posicion y valores inciales
+
     inicio = time.time()
-    while(newbtcprice == prevbtcprice):
+    done = 0
+    Cdone = []
+    data1 = data0.copy()
+    while( done < len(criptos)):
         time.sleep(2)
         driver = webdriver.Chrome('chromedriver',chrome_options=chrome_options)
         driver.get("https://coinmarketcap.com/")
-        newbtcprice, newbtc24h, newbtc7d = precios(driver)
+        for cripto in criptos:
+                if (data0[cripto][1] != Precios(driver,data0[cripto][0]) & cripto not in Cdone):
+                        done = done +1
+                        Cdone.append(cripto)
+    #once I know all i have old and new data, i compare
+    data1 = data0.copy()                 
+    for cripto in criptos:
+        data1[cripto][1:] = Precios(driver,data1[cripto][0])
+    print(data1)
+    for cripto in criptos:   float(data['Bitcoin'][1][1:].replace(',',''))
+        if (float(data0[cripto][1][1:].replace(',','')) < float(data1[cripto][1][1:].replace(',',''))):
+                if (float(data0[cripto][2].replace('%','') < float(data1[cripto][2].replace('%','')):
+                        data1[cripto][2] = '-' + data1[cripto][2]
+                if(float(data0[cripto][3].replace('%','') < float(data1[cripto][3].replace('%','')):
+                        data1[cripto][3] = '-' + data1[cripto][3]
+    for cripto in criptos:
+        print(data1[cripto]
         
-    if (newbtcprice < prevbtcprice):
-        if (newbtc24h > prevbtc24h):
-                newbtc24h = '-' + newbtc24h
-        if(newbtc7d > prevbtc7d):
-                newbtc7d = '-' + newbtc7d
-                
-    print('BTC-> precio:', btcprice, ' 24h:',btc24h,' 7d:',btc7d)
     print('Tiempo de ejecucion: ', time.time()-inicio)'''
         
         
