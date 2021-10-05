@@ -53,6 +53,7 @@ if __name__ == '__main__':
         driver.get("https://coinmarketcap.com/")
         for cripto in criptos:
                 if (data0[cripto][1] != Precios(driver,data0[cripto][0]) and cripto not in Cdone):
+                        print('Entro, precio anterior: ',data0[cripto][1],'precio nuevo: ',Precios(driver,data0[cripto][0]))
                         done = done +1
                         Cdone.append(cripto)
     #once I know all i have old and new data, i compare
@@ -69,7 +70,7 @@ if __name__ == '__main__':
                 if (float(data0[cripto][3].replace('%','')) < float(data1[cripto][3].replace('%',''))):
                         data1[cripto][3] = '-' + data1[cripto][3]
     for cripto in criptos:
-        print(data1[cripto])
+        print(cripto,': ',data1[cripto])
         
     print('Tiempo de ejecucion: ', time.time()-inicio)
         
