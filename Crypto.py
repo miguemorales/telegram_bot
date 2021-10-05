@@ -64,9 +64,9 @@ if __name__ == '__main__':
     print(data1)
     for cripto in criptos:     
         if (float(data0[cripto][1][1:].replace(',','')) < float(data1[cripto][1][1:].replace(',',''))):
-                if (float(data0[cripto][2].replace('%','') < float(data1[cripto][2].replace('%','')):
+                if (float(data0[cripto][2].replace('%','')) < float(data1[cripto][2].replace('%',''))):
                         data1[cripto][2] = '-' + data1[cripto][2]
-                if(float(data0[cripto][3].replace('%','') < float(data1[cripto][3].replace('%','')):
+                if (float(data0[cripto][3].replace('%','')) < float(data1[cripto][3].replace('%',''))):
                         data1[cripto][3] = '-' + data1[cripto][3]
     for cripto in criptos:
         print(data1[cripto]
