@@ -69,7 +69,7 @@ if __name__ == '__main__':
                 if (float(data0[cripto][3].replace('%','')) < float(data1[cripto][3].replace('%',''))):
                         data1[cripto][3] = '-' + data1[cripto][3]
     for cripto in criptos:
-        print(data1[cripto]
+        print(data1[cripto])
         
     print('Tiempo de ejecucion: ', time.time()-inicio)
         
