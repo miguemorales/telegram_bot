@@ -50,7 +50,7 @@ if __name__ == '__main__':
     while (done < len(criptos)):
         time.sleep(2)
         driver.quit()
-        driver.get("https://google.com/")
+        driver.get("https://ventumidc.es/")
         driver.quit()
         driver.get("https://coinmarketcap.com/")
         print('recargo')
