@@ -42,7 +42,7 @@ if __name__ == '__main__':
     print(data0)
 
     #Hata aqui ya crea el dic de moneda, posicion y valores inciales
-
+    driver.quit()
     inicio = time.time()
     done = 0
     Cdone = []
