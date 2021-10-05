@@ -47,7 +47,7 @@ if __name__ == '__main__':
     done = 0
     Cdone = []
     data1 = data0.copy()
-    while( done < len(criptos)):
+    while (done < len(criptos)):
         time.sleep(2)
         driver = webdriver.Chrome('chromedriver',chrome_options=chrome_options)
         driver.get("https://coinmarketcap.com/")
@@ -58,9 +58,11 @@ if __name__ == '__main__':
     #once I know all i have old and new data, i compare
     data1 = data0.copy()                 
     for cripto in criptos:
+        
         data1[cripto][1:] = Precios(driver,data1[cripto][0])
+
     print(data1)
-    for cripto in criptos:   float(data['Bitcoin'][1][1:].replace(',',''))
+    for cripto in criptos:     
         if (float(data0[cripto][1][1:].replace(',','')) < float(data1[cripto][1][1:].replace(',',''))):
                 if (float(data0[cripto][2].replace('%','') < float(data1[cripto][2].replace('%','')):
                         data1[cripto][2] = '-' + data1[cripto][2]
