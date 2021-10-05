@@ -34,8 +34,8 @@ if __name__ == '__main__':
     for cripto in criptos:
         aux = []
         aux.append(Buscador(driver,cripto))
-        aux.append(list(Precios(driver,aux[0])[0]))
-        aux.append(list(Precios(driver,aux[0])[1]))
+        aux.append(Precios(driver,aux[0])[0])
+        aux.append(Precios(driver,aux[0])[1])
         aux.append(Precios(driver,aux[0])[2])
         db[cripto] = aux
         #print(db)
