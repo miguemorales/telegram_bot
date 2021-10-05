@@ -32,10 +32,10 @@ if __name__ == '__main__':
     driver.get("https://coinmarketcap.com/")
     db = {}
     for cripto in criptos:
-        aux = ()
+        aux = []
         aux.append(Buscador(driver,cripto))
         db[cripto] = aux
-        db[cripto].append(Precios(driver,aux[0]))
+        db[cripto].append(list(Precios(driver,aux[0])))
         #print(db)
     print(db)
     
