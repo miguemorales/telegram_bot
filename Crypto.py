@@ -23,7 +23,6 @@ def Buscador(driver, cryp):
                 i= z+1
                 palabra = driver.find_element_by_xpath('/html/body/div/div/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr['+str(i)+']/td[3]/div/a/div/div/p').text
                 if (cryp == palabra):
-                        print('comparison: ', cryp, ' ',palabra)
                         return i
 
 if __name__ == '__main__':
@@ -33,12 +32,11 @@ if __name__ == '__main__':
     driver.get("https://coinmarketcap.com/")
     db = {}
     for cripto in criptos:
-        aux = []
+        aux = ()
         aux.append(Buscador(driver,cripto))
         db[cripto] = aux
-        print(db)
         db[cripto].append(Precios(driver,aux[0]))
-        print(db)
+        //print(db)
     print(db)
     
     '''prevprice, prev24h, prev7d = precios(driver)
