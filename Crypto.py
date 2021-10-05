@@ -49,22 +49,19 @@ if __name__ == '__main__':
     data1 = data0.copy()
     while (done < len(criptos)):
         time.sleep(2)
-        driver.quit()
-        #driver.get("https://ventumidc.es/")
-        #driver.quit()
-        driver.get("https://coinmarketcap.com/")
+        driver1 = webdriver.Chrome('chromedriver',options=chrome_options)
+        driver1.get("https://coinmarketcap.com/")
         print('recargo')
         for cripto in criptos:
-                print(cripto,': ','Precio anterior: ',data0[cripto][1],' precio nuevo: ',Precios(driver,data0[cripto][0])[0])
-                if (data0[cripto][1] != Precios(driver,data0[cripto][0])[0] and cripto not in Cdone):
-                        print('Entro, precio anterior: ',data0[cripto][1],'precio nuevo: ',Precios(driver,data0[cripto][0])[0], 'criptos hechas: ',Cdone)
+                if (data0[cripto][1] != Precios(driver1,data0[cripto][0])[0] and cripto not in Cdone):
+                        print('Entro, precio anterior: ',data0[cripto][1],'precio nuevo: ',Precios(driver1,data0[cripto][0])[0], 'criptos hechas: ',Cdone)
                         done = done +1
                         Cdone.append(cripto)
     #once I know all i have old and new data, i compare
     data1 = data0.copy()                 
     for cripto in criptos:
         
-        data1[cripto][1:] = Precios(driver,data1[cripto][0])
+        data1[cripto][1:] = Precios(driver1,data1[cripto][0])
 
     print(data1)
     for cripto in criptos:     
