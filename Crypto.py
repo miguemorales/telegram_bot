@@ -19,7 +19,7 @@ def Precios(driver,i):
         return  criptoprice, cripto24h, cripto7d
 
 def Buscador(driver, cryp):
-        for z in range(10):
+        for z in range(30):
                 i= z+1
                 palabra = driver.find_element_by_xpath('/html/body/div/div/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr['+str(i)+']/td[3]/div/a/div/div/p').text
                 if (cryp == palabra):
@@ -36,7 +36,7 @@ if __name__ == '__main__':
         aux.append(Buscador(driver,cripto))
         db[cripto] = aux
         db[cripto].append(Precios(driver,aux[0]))
-        //print(db)
+        #print(db)
     print(db)
     
     '''prevprice, prev24h, prev7d = precios(driver)
