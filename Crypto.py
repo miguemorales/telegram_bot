@@ -52,7 +52,7 @@ if __name__ == '__main__':
         driver = webdriver.Chrome('chromedriver',chrome_options=chrome_options)
         driver.get("https://coinmarketcap.com/")
         for cripto in criptos:
-                if (data0[cripto][1] != list(Precios(driver,data0[cripto][0])) & cripto not in Cdone):
+                if (data0[cripto][1] != Precios(driver,data0[cripto][0]) and cripto not in Cdone):
                         done = done +1
                         Cdone.append(cripto)
     #once I know all i have old and new data, i compare
