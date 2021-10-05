@@ -49,8 +49,9 @@ if __name__ == '__main__':
     data1 = data0.copy()
     while (done < len(criptos)):
         time.sleep(2)
-        driver = webdriver.Chrome('chromedriver',options=chrome_options)
-        driver.get("https://coinmarketcap.com/")
+        #driver = webdriver.Chrome('chromedriver',options=chrome_options)
+        #driver.get("https://coinmarketcap.com/")
+        driver.refresh()
         print('recargo')
         for cripto in criptos:
                 print(cripto,': ','Precio anterior: ',data0[cripto][1],' precio nuevo: ',Precios(driver,data0[cripto][0])[0])
