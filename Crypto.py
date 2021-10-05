@@ -51,8 +51,9 @@ if __name__ == '__main__':
         time.sleep(2)
         driver = webdriver.Chrome('chromedriver',options=chrome_options)
         driver.get("https://coinmarketcap.com/")
+        print('recargo')
         for cripto in criptos:
-                print(cripto,': ','Entro, precio anterior: ',data0[cripto][1],'precio nuevo: ',Precios(driver,data0[cripto][0])[0])
+                print(cripto,': ','Precio anterior: ',data0[cripto][1],' precio nuevo: ',Precios(driver,data0[cripto][0])[0])
                 if (data0[cripto][1] != Precios(driver,data0[cripto][0])[0] and cripto not in Cdone):
                         print('Entro, precio anterior: ',data0[cripto][1],'precio nuevo: ',Precios(driver,data0[cripto][0])[0], 'criptos hechas: ',Cdone)
                         done = done +1
