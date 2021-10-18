@@ -11,6 +11,7 @@ import telegram_send  # pip install telegram-send
 
 
 def Precios(driver,i):
+        print('hola')
         criptoname = driver.find_element_by_xpath('/html/body/div/div/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr['+str(i)+']/td[3]/div/a/div/div/p').text
         criptoprice = driver.find_element_by_xpath('/html/body/div/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr['+str(i)+']/td[4]/div/a').text
         cripto24h =  driver.find_element_by_xpath('/html/body/div/div[1]/div[1]/div[2]/div/div[1]/div[5]/table/tbody/tr['+str(i)+']/td[5]/span').text
