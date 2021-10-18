@@ -52,10 +52,9 @@ if __name__ == '__main__':
     while (done < len(criptos)):
         time.sleep(2)
         driver1.refresh()
-        print('recargo')
         for cripto in criptos:
                 if (data0[cripto][1] != Precios(driver1,data0[cripto][0])[0] and cripto not in Cdone):
-                        print('Entro, precio anterior: ',data0[cripto][1],'precio nuevo: ',Precios(driver1,data0[cripto][0])[0], 'criptos hechas: ',Cdone)
+                        //print('Entro, precio anterior: ',data0[cripto][1],'precio nuevo: ',Precios(driver1,data0[cripto][0])[0], 'criptos hechas: ',Cdone)
                         done = done +1
                         Cdone.append(cripto)
     #once I know all i have old and new data, i compare
@@ -65,9 +64,12 @@ if __name__ == '__main__':
         data1[cripto][1:] = Precios(driver1,data1[cripto][0])
 
     print(data1)
-    for cripto in criptos:     
+    for cripto in criptos:
+        print('valor 1: ',float(data0[cripto][1][1:].replace(',',''))', valor 2: ',float(data1[cripto][1][1:].replace(',','')))
         if (float(data0[cripto][1][1:].replace(',','')) < float(data1[cripto][1][1:].replace(',',''))):
+                print('perc 1: ',float(data0[cripto][2].replace('%','')),' ,perc 2: ',float(data1[cripto][2].replace('%','')))
                 if (float(data0[cripto][2].replace('%','')) < float(data1[cripto][2].replace('%',''))):
+                        print('WTF is going on')
                         data1[cripto][2] = '-' + data1[cripto][2]
                 if (float(data0[cripto][3].replace('%','')) < float(data1[cripto][3].replace('%',''))):
                         data1[cripto][3] = '-' + data1[cripto][3]
