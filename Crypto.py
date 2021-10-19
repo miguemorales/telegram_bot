@@ -47,20 +47,17 @@ if __name__ == '__main__':
     done = 0
     Cdone = []
     data1 = data0.copy()
-    #driver1 = webdriver.Chrome('chromedriver',options=chrome_options)
-    #driver1.get("https://coinmarketcap.com/")
+    driver1 = webdriver.Chrome('chromedriver',options=chrome_options)
+    driver1.get("https://coinmarketcap.com/")
     while (done < len(criptos)):
         time.sleep(2)
-        driver1 = webdriver.Chrome('chromedriver',options=chrome_options)
-        driver1.get("https://coinmarketcap.com/")
-        #driver1.refresh()
+        driver1.refresh()
         print(Precios(driver1,data0['Bitcoin'][0])[0])
         for cripto in criptos:
                 if (data0[cripto][1] != Precios(driver1,data0[cripto][0])[0] and cripto not in Cdone):
                         print('Entro, precio anterior: ',data0[cripto][1],'precio nuevo: ',Precios(driver1,data0[cripto][0])[0], 'criptos hechas: ',Cdone)
                         done = done +1
                         Cdone.append(cripto)
-        driver1.close()
     #once I know all i have old and new data, i compare
     data1 = data0.copy()                 
     for cripto in criptos:
