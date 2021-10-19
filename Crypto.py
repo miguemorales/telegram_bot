@@ -53,11 +53,11 @@ if __name__ == '__main__':
         time.sleep(2)
         driver1.refresh()
         for cripto in criptos:
-                print(Precios(driver1,data0[cripto][0])[0])
+                print(cripto,': ',Precios(driver1,data0[cripto][0])[0])
                 if (data0[cripto][1] != Precios(driver1,data0[cripto][0])[0] and cripto not in Cdone):
-                        print('Entro, precio anterior: ',data0[cripto][1],'precio nuevo: ',Precios(driver1,data0[cripto][0])[0], 'criptos hechas: ',Cdone)
                         done = done +1
                         Cdone.append(cripto)
+                        print('Entro, precio anterior: ',data0[cripto][1],'precio nuevo: ',Precios(driver1,data0[cripto][0])[0], 'criptos hechas: ',Cdone)
     #once I know all i have old and new data, i compare
     data1 = data0.copy()                 
     for cripto in criptos:
