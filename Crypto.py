@@ -57,7 +57,7 @@ if __name__ == '__main__':
         print(Precios(driver1,data0['Bitcoin'][0])[0])
         for cripto in criptos:
                 if (data0[cripto][1] != Precios(driver1,data0[cripto][0])[0] and cripto not in Cdone):
-                        #print('Entro, precio anterior: ',data0[cripto][1],'precio nuevo: ',Precios(driver1,data0[cripto][0])[0], 'criptos hechas: ',Cdone)
+                        print('Entro, precio anterior: ',data0[cripto][1],'precio nuevo: ',Precios(driver1,data0[cripto][0])[0], 'criptos hechas: ',Cdone)
                         done = done +1
                         Cdone.append(cripto)
         driver1.close()
