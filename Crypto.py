@@ -52,8 +52,8 @@ if __name__ == '__main__':
     while (done < len(criptos)):
         time.sleep(2)
         driver1.refresh()
-        print(Precios(driver1,data0['Bitcoin'][0])[0])
         for cripto in criptos:
+                print(Precios(driver1,data0[cripto][0])[0])
                 if (data0[cripto][1] != Precios(driver1,data0[cripto][0])[0] and cripto not in Cdone):
                         print('Entro, precio anterior: ',data0[cripto][1],'precio nuevo: ',Precios(driver1,data0[cripto][0])[0], 'criptos hechas: ',Cdone)
                         done = done +1
